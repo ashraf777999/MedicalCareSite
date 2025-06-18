@@ -1,0 +1,16 @@
+function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      alert("Êã ÊÓÌíá ÇáÏÎæá ÈäÌÇÍ");
+
+      // ÊæÌíå ãÄŞÊ – áÇÍŞğÇ íãßä ÑÈØå ÈÏæÑ ÇáãÓÊÎÏã
+      window.location.href = "client.html";
+    })
+    .catch((error) => {
+      alert("ÎØÃ İí ÊÓÌíá ÇáÏÎæá: " + error.message);
+    });
+}
